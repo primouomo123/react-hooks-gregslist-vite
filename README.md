@@ -10,9 +10,10 @@ Use this gif as an example of how the app should work.
 
 Welcome to gregslist, a community site for finding free items near you.
 
-The designers have put together the components and CSS. Now it's up to you to
-bring the features to life by adding stateful logic as well as persisting data
-to the backend via our API.
+The designers have put together the base components and CSS. Now it's up to you 
+to bring the features to life by adding stateful logic as well as persisting 
+data to the backend via our API. You may need to add new components for the 
+final deliverable.
 
 Your job will be to make our app work according to the user stories you will
 find in the [Core Deliverables](#Core-Deliverables) section.
@@ -36,8 +37,11 @@ As a user:
 3. I can remove a listing from the page by clicking the trash can icon. This
    change should be persisted in the backend.
 4. I can search for listings by their name.
+5. I can create a new listing by submitting a form, and persist the changes to
+   the backend. This deliverable is not in the demo, so it's up to you to determine
+   the component design for this feature.
 
-### Endpoints for Core Deliverables
+### Endpoints for Deliverables
 
 The base URL for your backend is: `http://localhost:6001`.
 
@@ -69,26 +73,6 @@ Example Response:
 ```json
 {}
 ```
-
-## Advanced Deliverables
-
-These deliverables are not required to pass the code challenge, but if you have
-the extra time, or even after the code challenge, they are a great way to
-stretch your skills.
-
-You'll have to add additional elements for these features. Feel free to style
-them however you see fit!
-
-> Note: If you are going to attempt these advanced deliverables, please be sure
-> to have a working commit with all the Core Deliverables first!
-
-As a user:
-
-1. I can sort the listings alphabetically by location.
-2. I can create a new listing by submitting a form, and persist the changes to
-   the backend.
-
-### Endpoints for Advanced Deliverables
 
 #### POST /listings
 
