@@ -53,6 +53,25 @@ header h1 {
   border-radius: 3px;
 }
 
+div.form-container {
+  border-bottom: 1px #ccc solid;
+  background: #eee;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+div.form-container p {
+  font-size: 1rem;
+  padding: 1rem;
+  border-right: 1pt black solid;
+}
+
+div.form-container * {
+  margin: 0.25rem;
+}
+
 main {
   padding: 0 1rem;
   max-width: 1200px;
