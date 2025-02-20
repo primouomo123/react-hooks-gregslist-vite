@@ -33,7 +33,7 @@ As a user:
 2. I can create a new listing by submitting the form, and persist the changes to
    the backend.
 3. I can "favorite" and "unfavorite" a listing on the frontend by clicking the
-   star icon.
+   star icon, and persist the change to the backend.
 4. I can remove a listing from the page by clicking the trash can icon. This
    change should be persisted in the backend.
 5. I can search for listings by their name.
@@ -52,23 +52,17 @@ Example Response:
     "id": 1,
     "description": "heater",
     "image": "./images/heater.jpg",
-    "location": "BROOKLYN"
+    "location": "BROOKLYN",
+    "favorite": false
   },
   {
     "id": 2,
     "description": "2019 Toyota Tacoma grill",
     "image": "./images/toyota-grill.jpg",
-    "location": "Williamsburg"
+    "location": "Williamsburg",
+    "favorite": false
   }
 ]
-```
-
-#### DELETE `/listings/:id`
-
-Example Response:
-
-```json
-{}
 ```
 
 #### POST /listings
@@ -87,7 +81,8 @@ Request Object:
 {
   "description": "heater",
   "image": "./images/heater.jpg",
-  "location": "BROOKLYN"
+  "location": "BROOKLYN",
+  "favorite": false
 }
 ```
 
@@ -98,6 +93,46 @@ Example response:
   "id": 1,
   "description": "heater",
   "image": "./images/heater.jpg",
-  "location": "BROOKLYN"
+  "location": "BROOKLYN",
+  "favorite": false
 }
+```
+
+#### PATCH /listings/:id
+
+Required Headers:
+
+```js
+{
+  "Content-Type": "application/json"
+}
+```
+
+Request Object:
+
+```json
+{
+  "favorite": true
+}
+```
+
+Example response:
+
+```json
+{
+  "id": 1,
+  "description": "heater",
+  "image": "./images/heater.jpg",
+  "location": "BROOKLYN",
+  "favorite": true
+}
+```
+
+
+#### DELETE `/listings/:id`
+
+Example Response:
+
+```json
+{}
 ```
