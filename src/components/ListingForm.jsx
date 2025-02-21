@@ -1,6 +1,6 @@
 const ListingForm = () => {
     return (
-        <div class="form-container">
+        <div className="form-container">
             <p>Create a New Listing</p>
             <form>
                 <label htmlFor="new-desc">Description:</label>
