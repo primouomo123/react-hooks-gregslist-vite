@@ -1,9 +1,10 @@
-function ListingCard() {
+function ListingCard({ description, image, location, favorite }) {
   return (
     <li className="card">
       <div className="image">
         <span className="price">$0</span>
-        <img src={"https://via.placeholder.com/300x300"} alt={"description"} />
+        { /* add description and image based on prop value */ }
+        <img src={image} alt={description} />
       </div>
       <div className="details">
         {true ? (
