@@ -1,15 +1,16 @@
 import ListingCard from "./ListingCard";
 
-// destructure updateListing from props object
-function ListingsContainer({ listings, updateListing }) {
+// destructure deleteListing from props object
+function ListingsContainer({ listings, updateListing, deleteListing }) {
   return (
     <main>
       <ul className="cards">
-        { /* add updateListing as prop to ListingCard */ }
+        { /* add deleteListing as prop to ListingCard */ }
         {listings.map(listing => <ListingCard 
           key={listing.id}
           {...listing}
           updateListing={updateListing} 
+          deleteListing={deleteListing}
         />)}
       </ul>
     </main>
@@ -17,4 +18,3 @@ function ListingsContainer({ listings, updateListing }) {
 }
 
 export default ListingsContainer;
-

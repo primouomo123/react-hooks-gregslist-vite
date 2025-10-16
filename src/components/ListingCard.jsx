@@ -1,19 +1,35 @@
-//destructure updateListing from props object
-function ListingCard({ id, image, description, location, favorite, updateListing }) {
+// destructure deleteListing from props object
+function ListingCard({ id, image, description, location, favorite, updateListing, deleteListing }) {
 
   const handleFavorite = () => {
     fetch(`http://localhost:6001/listings/${id}`, {
-            method: "PATCH",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({favorite: !favorite})
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ favorite: !favorite })
     })
       .then(r => {
-        if (!r.ok) {throw new Error("failed to favorite listing") }
-          return r.json()
-        })
-      .then(updateListing) // use prop to update state
-      .catch(error => console.log(error.message))
-  }
+        if (!r.ok) {
+          throw new Error("failed to update favorite status");
+        }
+        return r.json();
+      })
+      .then(updateListing)
+      .catch(error => console.error(error.message));
+  };
+
+  const handleDelete = () => {
+    fetch(`http://localhost:6001/listings/${id}`, {
+      method: "DELETE"
+    })
+      .then(r => {
+        if (!r.ok) {
+          throw new Error("failed to delete listing");
+        }
+        // call deleteListing and pass in id
+        deleteListing(id);
+      })
+      .catch(error => console.error(error.message));
+  };
 
   return (
     <li className="card">
@@ -22,15 +38,17 @@ function ListingCard({ id, image, description, location, favorite, updateListing
         <img src={image} alt={description} />
       </div>
       <div className="details">
-        { /* add onClicks to both buttons */ }
-        {favorite ? (
-          <button onClick={handleFavorite} className="emoji-button favorite active">★</button>
-        ) : (
-          <button onClick={handleFavorite} className="emoji-button favorite">☆</button>
-        )}
+        <button
+          onClick={handleFavorite}
+          className={`emoji-button favorite ${favorite ? "active" : ""}`}
+        >
+          {favorite ? "★" : "☆"}
+        </button>
         <strong>{description}</strong>
         <span> · {location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button onClick={handleDelete} className="emoji-button delete">
+          🗑
+        </button>
       </div>
     </li>
   );

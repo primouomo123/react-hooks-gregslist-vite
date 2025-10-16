@@ -48,13 +48,6 @@
       "image": "/images/treadmill.jpg",
       "location": "East Flatbush",
       "favorite": false
-    },
-    {
-      "id": "4e87",
-      "description": "New Item",
-      "image": "https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,w_1200/ncom/en_US/articles/2025/nintendo-switch-2-to-be-released-in-2025/1920x1080_WN_PR01162025",
-      "location": "charlotte",
-      "favorite": true
     }
   ]
 }

@@ -18,14 +18,16 @@ function App() {
 
   const addListing = newListing => setListings(previousListings => [...previousListings, newListing])
 
-  // define function to update a listing in state
   const updateListing = updatedListing => setListings(previousListings => previousListings.map(listing => listing.id === updatedListing.id ? updatedListing : listing))
+
+  // define function to delete a listing in state
+  const deleteListing = deletedListingId => setListings(previousListings => previousListings.filter(listing => listing.id !== deletedListingId))
   
   return (
     <div className="app">
       <Header />
       <ListingForm addListing={addListing} />
-      <ListingsContainer listings={listings} updateListing={updateListing} /> { /* pass updateListing as a prop */ }
+      <ListingsContainer listings={listings} updateListing={updateListing} deleteListing={deleteListing} /> { /* pass deleteListing as a prop */ }
     </div>
   );
 }
