@@ -16,12 +16,14 @@ function App() {
       .catch(error => console.log(error.message))
   }, []);
 
+  // define function to add listing to state
+  const addListing = newListing => setListings(previousListings => [...previousListings, newListing])
   
   return (
     <div className="app">
       <Header />
-      <ListingForm />
-      <ListingsContainer listings={listings} /> { /* pass listings to ListingsContainer */ }
+      <ListingForm addListing={addListing} /> { /* pass addListing as a prop */ }
+      <ListingsContainer listings={listings} />
     </div>
   );
 }
